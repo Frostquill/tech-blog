@@ -49,19 +49,30 @@ router.get('/:id', (req, res) => {
             }
         ]
         })
+        .then(dbPost => {
+            if(!dbPost) {
+                res.status(404).json({ message: 'No posts found!'});
+                return;
+            }
+            res.json(dbPost);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
 });
 
 router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
         content: req.body.content,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
     .then(dbPost => res.json(dbPost))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    })
+    });
 });
 
 router.put('/:id', (req, res) => {
@@ -97,7 +108,7 @@ router.delete('/:id', (req, res) => {
     })
     .then(dbPost => {
         if(!dbPost) {
-            res.status(404).json({message: 'Comment not found!'});
+            res.status(404).json({message: 'Post not found!'});
             return;
         }
         res.json({ message: 'Post deleted!' });
