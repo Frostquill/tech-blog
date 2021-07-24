@@ -12,7 +12,7 @@ const sess = {
     secret: 'Secrets for cookies',
     cookie:{},
     resave: false,
-    saveUnitialized: true,
+    saveUninitialized: true,
     store: new SequelizeStore({
         db:sequelize
     })
