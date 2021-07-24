@@ -1,4 +1,6 @@
 <section>
+
+
     <h2>Create New Post</h2>
 
     <form class="new-post-form">
@@ -8,12 +10,12 @@
         </div>
         <div>
             <label for="content">Content</label>
-            <input type="text" name = "content"/>
+            <textarea type="text" name = "content"/></textarea>
         </div>
         <button type = "submit" class = "btn">Create</button>
     </form>
 </section>
-{{#if post.length}}
+{{#if posts.length}}
 <section>
     <h2>Your Posts</h2>
     <ol>

@@ -1,5 +1,7 @@
 * {
     box-sizing: border-box;
+    background-color: grey;
+    color: white;
   }
   
   body, html {
@@ -12,13 +14,20 @@
   
   a {
     text-decoration: none;
-    color: #225ca3;
+    color: whitesmoke;
     font-weight: bold;
     transition: color .1s;
+    font-size: 25px;
+  }
+
+  #logout {
+    font-size: 25px;
+    color: whitesmoke;
   }
   
-  a:hover {
-    color: #3486eb;
+
+  a:hover, #logout:hover {
+    color: darkred;
   }
   
   button {
@@ -80,6 +89,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
+    height:20%;
   }
   
   header h1 {
@@ -149,16 +159,18 @@
   .comment {
     padding: 1%;
     margin-bottom: 1%;
+    
   }
   
-  .comment:nth-child(odd) {
-    background-color: #fff5eb;
+  .comment:nth-child(odd), .text {
+    background-color: darkslategray;
   }
   
   .comment .meta {
     font-size: 90%;
     margin-bottom: .5%;
     opacity: .6;
+    /* color: whitesmoke; */
   }
   
   .new-post-form input {
